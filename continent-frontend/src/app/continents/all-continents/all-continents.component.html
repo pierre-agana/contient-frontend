@@ -1,0 +1,47 @@
+<div class="container mt-2">
+    <br>
+    <div class="search-hero mt-2">
+        <input class="form-control" type="text" name="search" autocomplete="off"
+            placeholder="&#61442;  rechercher par code, nom , langue">
+    </div> <br>
+    <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col-md-4" *ngFor="let item of continentsAll">
+            <div class="card">
+                <img src="{{item.image}}" class="img-fluid img-thumbnail" alt="{{item.code}}" style="height: 390px;">
+                <div class="card-body " style="background-color: cornsilk;">
+                    <h5 class="card-title">{{item.code}}</h5>
+                    <p class="card-text">
+                        <b>
+                            {{item.name}}
+                        </b>
+                    </p>
+                </div>
+                <div class="card-body "  style="background-color: cornsilk;">
+                    <a  class="btn btn-primary mx-2" [routerLink]="['editContinent', item._id]">Modifier</a>
+                    <button type="button" class="btn btn-danger" (click)="openDeletePopup(item._id)" >Supprimer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Suppression</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Vouslez-vous supprimer ce continent ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-danger" (click)="delete()">Supprimer</button>
+            </div> 
+        </div>
+    </div>
+</div>

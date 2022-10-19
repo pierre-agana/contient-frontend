@@ -1,0 +1,26 @@
+<div class="container mt-2">
+
+    <legend>Modifier le contient {{contients.name}}</legend>
+
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp"
+                [(ngModel)]="contients.name" />
+        </div>
+        <div class="mb-3">
+            <label for="code" class="form-label">Code</label>
+            <input type="text" class="form-control" id="code" name="code" aria-describedby="emailHelp"
+                [(ngModel)]="contients.code" />
+        </div>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image Url</label>
+            <input type="text" class="form-control" id="image" name="image" aria-describedby="emailHelp"
+                [(ngModel)]="contients.image" />
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="update()">Enregistrer</button>
+
+    </form>
+
+</div>
